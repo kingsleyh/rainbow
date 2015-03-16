@@ -18,7 +18,7 @@ enum Effect{
 
 private static genColorEnums(string colorType){
 	string[] colorList;
-	colorList ~= "enum " ~ colorType ~ "{"; 
+	colorList ~= "enum " ~ colorType ~ "{";
 	if(colorType == "FgColor"){
 		colorList ~= "original = \"39\",
 	black = \"30\",
@@ -38,7 +38,7 @@ private static genColorEnums(string colorType){
 	lightCyan = \"96\",
 	white = \"97\",";
 	foreach(color ; iota(0,257)){
-      colorList ~= "c" ~ to!string(color) ~ " = " ~ "\"38;5;" ~ to!string(color) ~ "\",";     
+      colorList ~= "c" ~ to!string(color) ~ " = " ~ "\"38;5;" ~ to!string(color) ~ "\",";
 	}
 	} else {
 		colorList ~= "original = \"49\",
@@ -59,7 +59,7 @@ private static genColorEnums(string colorType){
 	lightCyan = \"106\",
 	white = \"107\",";
 	foreach(color ; iota(0,257)){
-      colorList ~= "c" ~ to!string(color) ~ " = " ~ "\"48;5;" ~ to!string(color) ~ "\",";     
+      colorList ~= "c" ~ to!string(color) ~ " = " ~ "\"48;5;" ~ to!string(color) ~ "\",";
 	}
 	}
 	colorList ~= "}";
@@ -70,7 +70,7 @@ mixin(genColorEnums("FgColor"));
 mixin(genColorEnums("BgColor"));
 
 class R{
- 
+
 private string content;
 private string[] codes = ["\033["];
 
@@ -83,7 +83,7 @@ private static genColors(string colorType){
      string[] colorList;
 	 foreach(color ; [__traits(allMembers, FgColor)]){
 	  string methName = colorType == "FgColor" ? color : "on" ~ to!string(color[0]).capitalize() ~ to!string(color[1..$]);
-      colorList ~= "@property public R " ~ methName ~ "(){ codes ~= " ~ colorType ~ "." ~ color ~ " ; codes ~= \";\" ; return this;}";	
+      colorList ~= "@property public R " ~ methName ~ "(){ codes ~= " ~ colorType ~ "." ~ color ~ " ; codes ~= \";\" ; return this;}";
     }
     return colorList.join("");
 }
@@ -92,7 +92,7 @@ private static genColors(string colorType){
 private static genEffects(){
      string[] effectList;
 	 foreach(effect ; [__traits(allMembers, Effect)]){
-      effectList ~= "@property public R " ~ effect ~ "(){ codes ~= Effect." ~ effect ~ " ; codes ~= \";\" ; return this;}";	
+      effectList ~= "@property public R " ~ effect ~ "(){ codes ~= Effect." ~ effect ~ " ; codes ~= \";\" ; return this;}";
     }
     return effectList.join("");
 }
@@ -107,20 +107,20 @@ public static R bow(string content){
 
  public R fg(FgColor color){
    codes ~= color;
-   codes ~= ";"; 
-   return this; 
+   codes ~= ";";
+   return this;
  }
 
   public R bg(BgColor color){
   codes ~= color;
-  codes ~= ";"; 
-   return this; 
+  codes ~= ";";
+   return this;
  }
 
   public R ef(Effect effect){
   codes ~= effect;
-  codes ~= ";"; 
-   return this; 
+  codes ~= ";";
+   return this;
  }
 
   override public string toString(){
@@ -148,7 +148,13 @@ public static R bow(string content){
     else static assert(0, "Operator "~op~" not implemented");
 }
 
-
+public void logo(){
+  writeln("");
+  writeln(R.bow("╦═╗").red.onBlack, R.bow("╔═╗").c208.onBlack, R.bow("╦").c221.onBlack, R.bow("╔╗╔").green.onBlack, R.bow("╔╗").cyan.onBlack, R.bow(" ╔═╗").c57.onBlack, R.bow("╦ ╦").c99.onBlack);
+  writeln(R.bow("╠╦╝").red.onBlack,R.bow("╠═╣").c208.onBlack, R.bow("║").c221.onBlack, R.bow("║║║").green.onBlack, R.bow("╠╩╗").cyan.onBlack, R.bow("║ ║").c57.onBlack, R.bow("║║║").c99.onBlack);
+  writeln(R.bow("╩╚═").red.onBlack,R.bow("╩ ╩").c208.onBlack, R.bow("╩").c221.onBlack, R.bow("╝╚╝").green.onBlack, R.bow("╚═╝").cyan.onBlack, R.bow("╚═╝").c57.onBlack,R.bow("╚╩╝").c99.onBlack);
+  writeln("");
+}
 
 }
 
