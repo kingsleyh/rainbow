@@ -67,7 +67,7 @@ There are 3 methods you can call:
 * ef(Effect effect)
 
 ```
-  writeln(R.bow(" Hello ").fg(FgColor.green).bg(BgColor.c221).ef(Effect.underlined));
+  writeln(Rainbow.apply(" Hello ").fg(FgColor.green).bg(BgColor.c221).ef(Effect.underlined));
 ```
 
 ### Basic colors (foreground and background)
