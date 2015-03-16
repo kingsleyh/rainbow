@@ -7,6 +7,8 @@ Pretty ANSI Colors for your terminal output.
 
 ## Install
 
+using DUB:
+
 ```
   	"dependencies": {
           "rainbow":"~master"
