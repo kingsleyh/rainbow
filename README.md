@@ -35,7 +35,7 @@ import net.masterthought.rainbow.r;
 import std.stdio;
 
 void main(){
-  writeln(R.bow("Hello").white.onCyan, R.bow(" World!").cyan.onWhite);
+  writeln("Hello".rainbow.white.onCyan, " World!".rainbow.cyan.onWhite);
 }
 
 ```
@@ -49,13 +49,13 @@ produces:
 You can use .colorName for foreground and .onColorName for background e.g.
 
 ```
- writeln(R.bow("Hello").red.onWhite);
+ writeln("Hello"rainbow.red.onWhite);
 ````
 
 You can use effects in the same way
 
 ```
-  writeln(R.bow("Hello").green.onBlack.underline.blink);
+  writeln("Hello".rainbow.green.onBlack.underlined.blink);
 ```
 
 ### long hand
@@ -88,7 +88,7 @@ BgColor.c208
 It's easy with shortcuts:
 
 ```
-  writeln(R.bow("hello").c33.onC45);
+  writeln("hello".rainbow.c33.onC45);
 ```
 
 note the upcased C when using the on notation.
