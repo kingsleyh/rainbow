@@ -49,7 +49,7 @@ produces:
 You can use .colorName for foreground and .onColorName for background e.g.
 
 ```
- writeln("Hello"rainbow.red.onWhite);
+ writeln("Hello".rainbow.red.onWhite);
 ````
 
 You can use effects in the same way
