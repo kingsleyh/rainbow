@@ -151,13 +151,6 @@ public static Rainbow apply(string content){
     else static assert(0, "Operator "~op~" not implemented");
 }
 
-public void logo(){
-  writeln("");
-  writeln("╦═╗".red.onBlack, "╔═╗".c208.onBlack, "╦".c221.onBlack, "╔╗╔".green.onBlack, "╔╗".cyan.onBlack, " ╔═╗".c57.onBlack, "╦ ╦".c99.onBlack);
-  writeln("╠╦╝".red.onBlack,"╠═╣".c208.onBlack, "║".c221.onBlack, "║║║".green.onBlack, "╠╩╗".cyan.onBlack, "║ ║".c57.onBlack, "║║║".c99.onBlack);
-  writeln("╩╚═".red.onBlack,"╩ ╩".c208.onBlack, "╩".c221.onBlack, "╝╚╝".green.onBlack, "╚═╝".cyan.onBlack, "╚═╝".c57.onBlack,"╚╩╝".c99.onBlack);
-  writeln("");
-}
 
 }
 
