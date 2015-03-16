@@ -7,8 +7,8 @@ import std.string;
 import std.range;
 import std.algorithm;
 
-R rainbow(string s){
-  return R.bow(s);
+Rainbow rainbow(string s){
+  return Rainbow.apply(s);
 }
 
 enum Effect{
@@ -73,7 +73,7 @@ private static genColorEnums(string colorType){
 mixin(genColorEnums("FgColor"));
 mixin(genColorEnums("BgColor"));
 
-class R{
+class Rainbow{
 
 private string content;
 private string[] codes = ["\033["];
@@ -105,23 +105,23 @@ mixin(genColors("FgColor"));
 mixin(genColors("BgColor"));
 mixin(genEffects());
 
-public static R bow(string content){
-	return new R(content);
+public static Rainbow apply(string content){
+	return new Rainbow(content);
 }
 
- public R fg(FgColor color){
+ public Rainbow fg(FgColor color){
    codes ~= color;
    codes ~= ";";
    return this;
  }
 
-  public R bg(BgColor color){
+  public Rainbow bg(BgColor color){
   codes ~= color;
   codes ~= ";";
    return this;
  }
 
-  public R ef(Effect effect){
+  public Rainbow ef(Effect effect){
   codes ~= effect;
   codes ~= ";";
    return this;
@@ -132,7 +132,6 @@ public static R bow(string content){
   		codes.popBack;
   	}
  	codes ~= "m" ~ content ~ "\033[0m";
- 	//writeln(codes);
     return codes.join("");
  }
 
@@ -154,9 +153,9 @@ public static R bow(string content){
 
 public void logo(){
   writeln("");
-  writeln(R.bow("╦═╗").red.onBlack, R.bow("╔═╗").c208.onBlack, R.bow("╦").c221.onBlack, R.bow("╔╗╔").green.onBlack, R.bow("╔╗").cyan.onBlack, R.bow(" ╔═╗").c57.onBlack, R.bow("╦ ╦").c99.onBlack);
-  writeln(R.bow("╠╦╝").red.onBlack,R.bow("╠═╣").c208.onBlack, R.bow("║").c221.onBlack, R.bow("║║║").green.onBlack, R.bow("╠╩╗").cyan.onBlack, R.bow("║ ║").c57.onBlack, R.bow("║║║").c99.onBlack);
-  writeln(R.bow("╩╚═").red.onBlack,R.bow("╩ ╩").c208.onBlack, R.bow("╩").c221.onBlack, R.bow("╝╚╝").green.onBlack, R.bow("╚═╝").cyan.onBlack, R.bow("╚═╝").c57.onBlack,R.bow("╚╩╝").c99.onBlack);
+  writeln("╦═╗".red.onBlack, "╔═╗".c208.onBlack, "╦".c221.onBlack, "╔╗╔".green.onBlack, "╔╗".cyan.onBlack, " ╔═╗".c57.onBlack, "╦ ╦".c99.onBlack);
+  writeln("╠╦╝".red.onBlack,"╠═╣".c208.onBlack, "║".c221.onBlack, "║║║".green.onBlack, "╠╩╗".cyan.onBlack, "║ ║".c57.onBlack, "║║║".c99.onBlack);
+  writeln("╩╚═".red.onBlack,"╩ ╩".c208.onBlack, "╩".c221.onBlack, "╝╚╝".green.onBlack, "╚═╝".cyan.onBlack, "╚═╝".c57.onBlack,"╚╩╝".c99.onBlack);
   writeln("");
 }
 
