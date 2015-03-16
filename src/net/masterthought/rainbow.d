@@ -1,4 +1,4 @@
-module net.masterthought.rainbow.r;
+module net.masterthought.rainbow;
 
 import std.array;
 import std.conv;
