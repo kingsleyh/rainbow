@@ -155,7 +155,8 @@ public static Rainbow apply(string content){
 }
 
 unittest{
-  assert(1 == 2);
+  assert("red".rainbow.red.onCyan.underlined.codes == ["\x1B[", "31", ";", "46", ";", "4", ";"]);
+  assert("red".rainbow.c99.onC199.underlined.codes == ["\x1B[", "38;5;99", ";", "48;5;199", ";", "4", ";"]);
 }
 
 
