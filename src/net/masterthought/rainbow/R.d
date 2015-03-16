@@ -7,6 +7,10 @@ import std.string;
 import std.range;
 import std.algorithm;
 
+R rainbow(string s){
+  return R.bow(s);
+}
+
 enum Effect{
 	bold = "1",
 	dim = "2",
