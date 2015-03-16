@@ -31,7 +31,7 @@ There are 3 items supported:
 * effects
 
 ```
-import net.masterthought.rainbow.r;
+import net.masterthought.rainbow;
 import std.stdio;
 
 void main(){
