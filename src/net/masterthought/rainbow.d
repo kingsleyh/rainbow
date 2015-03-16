@@ -87,7 +87,7 @@ private static genColors(string colorType){
      string[] colorList;
 	 foreach(color ; [__traits(allMembers, FgColor)]){
 	  string methName = colorType == "FgColor" ? color : "on" ~ to!string(color[0]).capitalize() ~ to!string(color[1..$]);
-      colorList ~= "@property public R " ~ methName ~ "(){ codes ~= " ~ colorType ~ "." ~ color ~ " ; codes ~= \";\" ; return this;}";
+      colorList ~= "@property public Rainbow " ~ methName ~ "(){ codes ~= " ~ colorType ~ "." ~ color ~ " ; codes ~= \";\" ; return this;}";
     }
     return colorList.join("");
 }
@@ -96,7 +96,7 @@ private static genColors(string colorType){
 private static genEffects(){
      string[] effectList;
 	 foreach(effect ; [__traits(allMembers, Effect)]){
-      effectList ~= "@property public R " ~ effect ~ "(){ codes ~= Effect." ~ effect ~ " ; codes ~= \";\" ; return this;}";
+      effectList ~= "@property public Rainbow " ~ effect ~ "(){ codes ~= Effect." ~ effect ~ " ; codes ~= \";\" ; return this;}";
     }
     return effectList.join("");
 }
