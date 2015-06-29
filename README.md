@@ -1,3 +1,4 @@
+# PLEASE NOTE - This project is not being actively maintained at the moment - I am taking a break - not sure when I will return.
 # Rainbow
 
 Pretty ANSI Colors for your terminal output.
