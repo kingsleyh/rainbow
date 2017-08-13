@@ -3,8 +3,7 @@
 
 Pretty ANSI Colors for your terminal output.
 
-![logo]
-(https://raw.githubusercontent.com/kingsleyh/rainbow/master/.README/rainbow_logo.png)
+![logo](https://raw.githubusercontent.com/kingsleyh/rainbow/master/.README/rainbow_logo.png)
 
 ## Install
 
@@ -42,8 +41,7 @@ void main(){
 ```
 produces:
 
-![hello world]
-(https://raw.githubusercontent.com/kingsleyh/rainbow/master/.README/rainbow_hw.png)
+![hello world](https://raw.githubusercontent.com/kingsleyh/rainbow/master/.README/rainbow_hw.png)
 
 ### short cuts
 
